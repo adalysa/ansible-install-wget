@@ -1,0 +1,14 @@
+- name: Playbook
+  hosts: all
+  become: yes
+  tasks:
+    - name: Create a new Droplet
+      digital_ocean_droplet:
+        state: present
+        name: testdroplet
+        oauth_token: dop_v1_2268664a786bf31fe71bfa9861ae05d9359377500b059415d781cdc6f5b48564
+        size: s-1vcpu-1gb
+        region: fra1
+        image: ubuntu-20-04-x64
+        wait_timeout: 500
+      register: testdroplet
